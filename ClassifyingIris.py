@@ -1,5 +1,16 @@
-from sklearn.datasets import load_iris
+# 
+# Simple python project for classifying Iris flower: 1/2
+# Credit: Introduction to Machine Learning with Python by Andreas C. Muller & Sarah Guido
 
+# Purpose: To study Machine Learning concepts and applications. The original code was created
+#          by Muller & Guido and modified by the author for educational purpose only.
+# Author: Ploypaphat Saltz
+# Date: 03/30/2019
+#
+import pandas as pd
+print("pandas version:", pd.__version__)
+
+from sklearn.datasets import load_iris
 
 iris_dataset = load_iris()
 
@@ -21,5 +32,18 @@ print()
 
 ##     print values of 'feature_names' => 150x4 array of the measurement
 ##                                        150 flowers and its measurement
-print("Data: " , type(iris_dataset['data']))
+##                                        [:5] is printing the first 5 rows
+print("Data: " , iris_dataset['data'][:5])
+print()
+
+##     print the shape of array
+print("Shape of data: " , iris_dataset['data'].shape)
+print()
+
+##     print the target => each type encoded to 0-2 (3 kinds of iris)
+print("Target:\n" , iris_dataset['target'])
+print()
+
+##     print the target name
+print("Target names:\n" , iris_dataset['target_names'])
 print()
