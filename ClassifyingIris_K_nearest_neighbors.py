@@ -7,40 +7,40 @@
 # Author: Ploypaphat Saltz
 # Date: 03/30/2019
 #
-
+import mglearn
 from ClassifyingIris import iris_dataset
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from ClassifyingIris_TrainTestData import X_train, X_test, y_train, y_test
 
-#if __name__ == "__main__":
+if __name__ == "__main__":
     
 # knn encapsulates algorithm to build model from the training data
-knn = KNeighborsClassifier(n_neighbors=1)
-knn.fit(X_train, y_train)
-
-X_new = np.array([[5, 2.9, 1, 0.2]])
-print("X_new.shape:", X_new.shape)
+    knn = KNeighborsClassifier(n_neighbors=1)
+    knn.fit(X_train, y_train)
+    mglearn.plots.plot_knn_classification(n_neighbors=3)
+    X_new = np.array([[5, 2.9, 1, 0.2]])
+    print("X_new.shape:", X_new.shape)
 
 # test predicting
-prediction = knn.predict(X_new)
+    prediction = knn.predict(X_new)
 
-print("\n///////////////////////////////////////////////////////////////////")
+    print("\n///////////////////////////////////////////////////////////////////")
 
-print("Prediction:", prediction)
-print("Predicted target name:", iris_dataset['target_names'][prediction])
+    print("Prediction:", prediction)
+    print("Predicted target name:", iris_dataset['target_names'][prediction])
 
-print("\n///////////////////////////////////////////////////////////////////")
+    print("\n///////////////////////////////////////////////////////////////////")
 
 #Evaluating the model
 #   To evaluate, predict each iris in the test data (25%),
 #   then compare it against its label. Then compute the 'accuracy'
 
-y_pred = knn.predict(X_test)
-print("Test set predictions:\n", y_pred)
+    y_pred = knn.predict(X_test)
+    print("Test set predictions:\n", y_pred)
 
-print("\n///////////////////////////////////////////////////////////////////")
+    print("\n///////////////////////////////////////////////////////////////////")
 
-print("Test set score: {:.2f}".format(knn.score(X_test, y_test)))
+    print("Test set score: {:.2f}".format(knn.score(X_test, y_test)))
 
-print("\n///////////////////////////////////////////////////////////////////")
+    print("\n///////////////////////////////////////////////////////////////////")
